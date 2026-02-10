@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background: linear-gradient(rgba(38, 50, 98, 0.78), rgba(38, 50, 98, 0.88)),
+                url('https://img.freepik.com/free-vector/blue-futuristic-networking-technology_53876-97395.jpg') center center / cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 160px 20px 100px;
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 3.8rem;
+    margin-bottom: 16px;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.5);
+}
+
+header p {
+    font-size: 1.6rem;
+    opacity: 0.95;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+}
+
+.about-section {
+    background: white;
+    margin: -60px auto 80px;
+    padding: 70px 50px;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    max-width: 920px;
+}
+
+.about-section h2 {
+    color: #4a4a8c;
+    font-size: 2.6rem;
+    margin-bottom: 35px;
+    text-align: center;
+    position: relative;
+}
+
+.about-section h2::after {
+    content: '';
+    width: 90px;
+    height: 5px;
+    background: #667eea;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+.about-text {
+    font-size: 1.18rem;
+    max-width: 780px;
+    margin: 0 auto 50px;
+    color: #444;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.social-links a {
+    color: #555;
+    font-size: 2.4rem;
+    margin: 0 22px;
+    transition: all 0.35s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: #667eea;
+    transform: translateY(-8px) scale(1.1);
+}
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: #777;
+    font-size: 0.98rem;
+    border-top: 1px solid #eee;
+}
+
+/* Quote Generator Section */
+#quote-section {
+    background: #0f172a;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#quote-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    color: #fbbf24;
+}
+
+#random-quote-generator {
+    background: linear-gradient(45deg, #0c7dee, #db9d9d);
+    border-radius: 20px;
+    padding: 60px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transition: background 0.8s ease;
+}
+
+#random-quote-text {
+    font-size: 2.1rem;
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+#random-quote-author {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    opacity: 0.9;
+}
+
+#new-quote-btn {
+    margin-top: 40px;
+    padding: 16px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+#new-quote-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+}
+
+/* Craps Game Section */
+#craps-game {
+    background: #0f172a;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#craps-game h2 {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    color: #fbbf24;
+}
+
+#craps-game .game-container {
+    background: #16213e;
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+#craps-game .hidden {
+    display: none;
+}
+
+#craps-game h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #fbbf24;
+}
+
+#craps-game .welcome {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    color: #e2e8f0;
+}
+
+#craps-game .balance {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin: 20px 0;
+}
+
+#craps-game #username:focus {
+    outline: none;
+}
+
+#craps-game .round-info span {
+    font-weight: bold;
+    color: #fbbf24;
+}
+
+#craps-game .dice-area {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 35px 0;
+}
+
+#craps-game .die {
+    width: 130px;
+    height: 130px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+
+#craps-game .die.blank {
+    background: linear-gradient(145deg, #f8f8f8, #e0e0e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #777;
+}
+
+#craps-game .die.face1 { background: white; }
+#craps-game .die.face2 { background: white; }
+#craps-game .die.face3 { background: white; }
+#craps-game .die.face4 { background: white; }
+#craps-game .die.face5 { background: white; }
+#craps-game .die.face6 { background: white; }
+
+#craps-game .die.rolling {
+    animation: roll 0.8s ease-in-out;
+}
+
+@keyframes roll {
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.12) rotate(90deg); }
+    50% { transform: scale(0.92) rotate(180deg); }
+    75% { transform: scale(1.08) rotate(270deg); }
+    100% { transform: scale(1) rotate(360deg); }
+}
+
+#craps-game #total-roll {
+    font-size: 2rem;
+    color: #fbbf24;
+    margin: 15px 0 30px;
+}
+
+#craps-game .result {
+    font-size: 1.45rem;
+    padding: 20px;
+    border-radius: 12px;
+    min-height: 60px;
+    background: rgba(148,163,184,0.12);
+    margin: 20px 0;
+    color: white;
+}
+
+#craps-game .result.win  { background: rgba(16,185,129,0.22); color: #22c55e; }
+#craps-game .result.loss { background: rgba(239,68,68,0.22);  color: #ef4444; }
+#craps-game .result.push { background: #000; color: #eab308; }
+
+#craps-game .bet-types {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+    justify-content: center;
+}
+
+#craps-game .bet-btn {
+    flex: 1;
+    padding: 24px 16px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#craps-game .bet-btn.pass {
+    background: linear-gradient(145deg, #10b981, #059669);
+}
+
+#craps-game .bet-btn.dont {
+    background: linear-gradient(145deg, #ef4444, #dc2626);
+}
+
+#craps-game .bet-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+#craps-game .bet-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+#craps-game .bet-amount-area {
+    margin: 30px 0;
+    color: white;
+}
+
+#craps-game .bet-amount-area p {
+    font-size: 1.45rem;
+    margin-bottom: 15px;
+}
+
+#craps-game .bet-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+#craps-game .small-btn {
+    background: #334155;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    min-width: 80px;
+}
+
+#craps-game .small-btn:hover {
+    background: #475569;
+}
+
+#craps-game .small-btn.max {
+    background: #d97706;
+}
+
+#craps-game .roll-btn {
+    width: 100%;
+    padding: 18px;
+    font-size: 15px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#craps-game .roll-btn:hover:not(:disabled) {
+    background: linear-gradient(90deg, #2563eb, #1e40af);
+}
+
+#craps-game .roll-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 580px) {
+    #craps-game .bet-types { flex-direction: column; gap: 16px; }
+    #craps-game .die { width: 110px; height: 110px; }
+    #craps-game .dice-area { gap: 25px; }
+}
