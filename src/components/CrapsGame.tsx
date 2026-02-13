@@ -3,22 +3,22 @@ import React, { useState } from 'react';
 type BetType = 'pass' | 'dont' | null;
 
 const CrapsGame: React.FC = () => {
-  const [username, setUsername] = useState<string>('');
-  const [tempUsername, setTempUsername] = useState<string>('');
-  const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
+  const [username, setUsername] = useState('');
+  const [tempUsername, setTempUsername] = useState('');
+  const [isGameStarted, setIsGameStarted] = useState(false);
 
-  const [balance, setBalance] = useState<number>(1000);
-  const [currentBet, setCurrentBet] = useState<number>(100);
+  const [balance, setBalance] = useState(1000);
+  const [currentBet, setCurrentBet] = useState(100);
   const [betType, setBetType] = useState<BetType>(null);
-  const [round, setRound] = useState<number>(0);
-  const [canBet, setCanBet] = useState<boolean>(true);
+  const [round, setRound] = useState(0);
+  const [canBet, setCanBet] = useState(true);
 
-  const [die1, setDie1] = useState<number>(1);
-  const [die2, setDie2] = useState<number>(1);
-  const [totalRoll, setTotalRoll] = useState<string>('Total: ?');
-  const [result, setResult] = useState<string>('');
-  const [resultClass, setResultClass] = useState<string>('result');
-  const [isRolling, setIsRolling] = useState<boolean>(false);
+  const [die1, setDie1] = useState(1);
+  const [die2, setDie2] = useState(1);
+  const [totalRoll, setTotalRoll] = useState('Total: ?');
+  const [result, setResult] = useState('');
+  const [resultClass, setResultClass] = useState('result');
+  const [isRolling, setIsRolling] = useState(false);
 
   // Start the game
   const startGame = () => {
@@ -69,18 +69,39 @@ const CrapsGame: React.FC = () => {
         let message = `${final1} + ${final2} = ${total}`;
         let newClass = 'result ';
 
-        if (total === 7 || total === 11) {
-          setBalance(prev => prev + currentBet * 2);
-          message += ' → YOU WIN!';
-          newClass += 'win';
-          resetRound();
-        } else if ([2, 3, 12].includes(total)) {
-          message += ' → YOU LOSE!';
-          newClass += 'loss';
-          resetRound();
-        } else {
-          message += ' → Roll again!';
-          newClass += 'neutral';
+        if (betType === 'pass') {
+          if ([7, 11].includes(total)) {
+            setBalance(prev => prev + currentBet * 2);
+            message += ' → YOU WIN!';
+            newClass += 'win';
+            resetRound();
+          } else if ([2, 3, 12].includes(total)) {
+            message += ' → YOU LOSE!';
+            newClass += 'loss';
+            resetRound();
+          } else {
+            message += ' → Roll again!';
+            newClass += 'neutral';
+          }
+        } else if (betType === 'dont') {
+          if ([2, 3].includes(total)) {
+            setBalance(prev => prev + currentBet * 2);
+            message += ' → YOU WIN!';
+            newClass += 'win';
+            resetRound();
+          } else if ([7, 11].includes(total)) {
+            message += ' → YOU LOSE!';
+            newClass += 'loss';
+            resetRound();
+          } else if (total === 12) {
+            message += ' → PUSH';
+            newClass += 'push';
+            setBalance(prev => prev + currentBet);
+            resetRound();
+          } else {
+            message += ' → Roll again!';
+            newClass += 'neutral';
+          }
         }
 
         setResult(message);
@@ -130,6 +151,9 @@ const CrapsGame: React.FC = () => {
             <h2>Welcome, {username}!</h2>
             <div className="balance">${balance}</div>
             <div className="round-info">Round: {round}</div>
+            <div className="current-bet">
+              Current Bet: {betType ? betType.toUpperCase() : 'None'}
+            </div>
 
             <div className="dice-area">
               <div className={`die ${isRolling ? 'rolling' : ''}`}>{renderDots(die1)}</div>

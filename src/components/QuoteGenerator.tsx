@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 interface QuoteItem {
-  quoteText: string;
-  quoteAuthor: string;
-}
-
-interface QuoteResponse {
-  data: QuoteItem[];
+  quote: string;
+  author: string;
 }
 
 const QuoteGenerator: React.FC = () => {
@@ -27,36 +23,31 @@ const QuoteGenerator: React.FC = () => {
 
   const fetchNewQuote = async () => {
     try {
-      const response = await fetch(
-        "https://dummyjson.com/quotes/random"
-      );
-  
+      const response = await fetch("https://dummyjson.com/quotes/random");
       if (!response.ok) throw new Error("Failed to fetch");
-  
-      const data = await response.json();
-  
+
+      const data: QuoteItem = await response.json();
+
       setQuote(`"${data.quote}"`);
       setAuthor(data.author);
-  
+
       const [color1, color2] = getRandomColorCombo();
       setBgStyle(`linear-gradient(45deg, ${color1}, ${color2})`);
-  
     } catch (error) {
       console.error("Error:", error);
       setQuote("Couldn't load quote... 😔");
       setAuthor("");
     }
   };
-  
 
   useEffect(() => {
     fetchNewQuote();
-  }, []);
+  }, []); 
 
   return (
     <section id="quote-section">
       <div className="container">
-        <h2>Random Quote Generatorr</h2>
+        <h2>Random Quote Generator</h2>
 
         <div id="random-quote-generator" style={{ background: bgStyle }}>
           <div id="random-quote-text">{quote}</div>
